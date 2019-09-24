@@ -63,7 +63,7 @@ public class LancamentoControllerTest {
 	private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Test
-	//@WithMockUser
+	@WithMockUser
 	public void testCadastrarLancamento() throws Exception {
 		Lancamento lancamento = obterDadosLancamento();
 		BDDMockito.given(this.funcionarioService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Funcionario()));
@@ -82,7 +82,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
-	//@WithMockUser
+	@WithMockUser
 	public void testCadastrarLancamentoFuncionarioIdInvalido() throws Exception {
 		BDDMockito.given(this.funcionarioService.buscarPorId(Mockito.anyLong())).willReturn(Optional.empty());
 
@@ -96,7 +96,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
-	//@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
+	@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
 	public void testRemoverLancamento() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
 
@@ -106,7 +106,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
-	//@WithMockUser
+	@WithMockUser
 	public void testRemoverLancamentoAcessoNegado() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
 
